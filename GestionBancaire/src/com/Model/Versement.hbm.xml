@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 oct. 2016 08:28:38 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.Model.Versement" table="versement" catalog="gestionb">
+        <id name="idVersement" type="java.lang.Long">
+            <column name="ID_VERSEMENT" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="client" class="com.Model.Client" fetch="select" lazy="false">
+            <column name="ID_CLIENT" not-null="true" />
+        </many-to-one>
+        <property name="montant" type="java.lang.Long">
+            <column name="MONTANT" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="DATE" length="19" />
+        </property>
+        <property name="mois" type="int">
+            <column name="mois" not-null="true" />
+        </property>
+        <property name="annee" type="int">
+            <column name="annee" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
